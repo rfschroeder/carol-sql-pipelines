@@ -1,45 +1,38 @@
 {
-    "defaults":
-    {
-        "cronExpressions":
-        [
-            "0 */5 0 ? * * *"
-        ],
-        "prepareScripts":
-        [
-            ""
-        ]
-    },
-    "pipelines":
-    [
-        {
-            "pipelineName": "product_pipeline",
-            "pipelineDescription": "Pipeline para processar dados de Produtos",
-            "outputDataModelName": "product",
-            "overlapDeltaMinutes": 3600,
-            "saveToCds": true,
-            "saveToUnified": true,
-            "sendToSubscriptions": true,
-            "saveToRealtime": true,
-            "cronExpressions":
-            [
-                "0 5,15,25,35,45,55 * * * ?"
-            ],
-            "timeZone": "America/Sao_Paulo",
-            "prepareScripts": [
-                "product_prepare.sql"
-            ],
-            "processScript": "product.csql",
-            "sourceEntities":
-            {
-                "stagings":
-                [
-                    {
-                        "connectorName": "custom",
-                        "stagingName": "product"
-                    }                    
-                ]
-            }
-        }
+  "defaults": {
+    "cronExpressions": [
+      "0 */5 0 ? * * *"
+    ],
+    "prepareScripts": [
+      "prepare.sql"
     ]
+  },
+  "pipelines": [
+    {
+      "pipelineName": "product_main",
+      "pipelineDescription": "Pipeline for the product table, that uses staging custom",
+      "outputDataModelName": "product",
+      "overlapDeltaMinutes": 180,
+      "saveToCds": true,
+      "saveToUnified": true,
+      "sendToSubscriptions": true,
+      "saveToRealtime": true,
+      "cronExpressions": [
+        "0 5,15,25,35,45,55 * * * ?"
+      ],
+      "timeZone": "America/Sao_Paulo",
+      "prepareScripts": [
+        "product_prepare.sql"
+      ],
+      "processScript": "product.sql",
+      "sourceEntities": {
+        "stagings": [
+          {
+            "connectorName": "custom",
+            "stagingName": "product"
+          }
+        ]
+      }
+    }
+  ]
 }
