@@ -29,7 +29,7 @@
             "prepareScripts": [
                 "product_prepare.sql"
             ],
-            "processScript": "training-pipeline-sql.csql",
+            "processScript": "product.csql",
             "sourceEntities":
             {
                 "stagings":
