@@ -7,5 +7,5 @@ SELECT
         ELSE false
     END AS ispromotional
 FROM
-    stg_custom_product AS stg
+    stg_product_product AS stg
        
