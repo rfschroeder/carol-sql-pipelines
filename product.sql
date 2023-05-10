@@ -19,7 +19,7 @@ SELECT
         ELSE mdmid
     END AS productid,
     CAPITALIZE(stg.name) AS mdmname,
-    CONCAT("qarenan-", stg.name) AS mdmdescription,
+    CONCAT(":: ", UPPER(stg.name), " ::") AS mdmdescription,
     stg.price AS mdmunitvalue,
     CASE
         WHEN stg.price > 1000 THEN true
