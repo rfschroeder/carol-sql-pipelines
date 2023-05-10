@@ -8,5 +8,5 @@ SELECT
     END AS ispromotional
     --metadata{nlp,product}--
 FROM
-    stg_product_product AS stg
+    stg_custom_product AS stg
        
