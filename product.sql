@@ -14,6 +14,7 @@ CREATE TEMP FUNCTION CAPITALIZE(str STRING) AS ((
 ));
 
 SELECT
+    id as productid,
     CAPITALIZE(stg.name) AS mdmname,
     CONCAT("qarenan-", stg.name) AS mdmdescription,
     stg.price as mdmunitvalue,
