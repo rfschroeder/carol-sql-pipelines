@@ -6,7 +6,7 @@ SELECT
         WHEN stg.price > 1000 THEN true
         ELSE false
     END AS ispromotional
-    --metadata{nlp,product}--
+    --metadata{custom,product}--
 FROM
     stg_custom_product AS stg
        
