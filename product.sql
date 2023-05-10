@@ -1,11 +1,11 @@
 SELECT
-    stg.name AS mdmname,
-    CONCAT("qarenan-", stg.name) AS mdmdescription,
-    stg.price as mdmunitvalue,
+    stg.name AS product_name,
+    CONCAT("qarenan-", stg.name) AS product_description,
+    stg.price as product_unit_value,
     CASE
         WHEN stg.price > 1000 THEN true
         ELSE false
-    END AS ispromotional
+    END AS product_is_promotional
 FROM
     stg_product_product AS stg
        
