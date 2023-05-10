@@ -14,10 +14,13 @@ CREATE TEMP FUNCTION CAPITALIZE(str STRING) AS ((
 ));
 
 SELECT
-    id as productid,
+    CASE
+        WHEN id IS NOT NULL THEN id
+        ELSE mdmid
+    END AS productid,
     CAPITALIZE(stg.name) AS mdmname,
     CONCAT("qarenan-", stg.name) AS mdmdescription,
-    stg.price as mdmunitvalue,
+    stg.price AS mdmunitvalue,
     CASE
         WHEN stg.price > 1000 THEN true
         ELSE false
